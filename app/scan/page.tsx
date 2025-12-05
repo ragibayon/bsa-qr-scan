@@ -116,16 +116,16 @@ export default function ScanPage() {
 
   return (
     <div className="p-6 flex flex-col items-center min-h-screen bg-black text-white">
+      {/* HEADER */}
       <h1 className="text-2xl font-bold mt-4 text-center tracking-wide">
-        BSA-TXST
+        Bangladesh Stundent Association
       </h1>
       <h2 className="text-lg font-semibold mb-6 text-center">
-        Membership QR Scan
+        Texas State University <br /> Membership QR Scan
       </h2>
 
-      {errorMsg && <p className="text-red-400 mt-2">{errorMsg}</p>}
-
-      {!isScanning && !membershipId && (
+      {/* SHOW START BUTTON WHEN NOTHING IS SCANNING & NO RESULT */}
+      {!isScanning && !member && (
         <button
           onClick={handleStartScanner}
           className="mt-4 px-4 py-2 bg-white text-black rounded-lg"
@@ -134,6 +134,7 @@ export default function ScanPage() {
         </button>
       )}
 
+      {/* LIVE SCANNER UI */}
       {isScanning && (
         <>
           <div id="qr-reader" className="w-full max-w-xs mx-auto bg-black" />
@@ -146,38 +147,43 @@ export default function ScanPage() {
         </>
       )}
 
+      {/* SCANNED RAW TEXT */}
       {membershipId && (
-        <p className="text-lg font-semibold mt-4">
+        <p className="text-lg font-semibold mt-4 text-center break-words">
           Membership ID: {membershipId}
         </p>
       )}
 
+      {/* RESULT CARD */}
       {member && (
-        <div className="mt-6 p-6 rounded-lg bg-white text-black w-full max-w-xs text-center">
-          {!member.valid ? (
-            <h2 className="text-xl font-bold">Invalid Member</h2>
-          ) : member.active ? (
-            <>
-              <h2 className="text-xl font-bold">Active Member</h2>
-              <p>{member.name}</p>
-            </>
-          ) : (
-            <>
-              <h2 className="text-xl font-bold">Not Active</h2>
-              <p>{member.name}</p>
-              <p className="text-sm mt-1">
-                Last Paid: <b>{member.lastPaidSemester || "None"}</b>
-              </p>
-            </>
-          )}
+        <>
+          <div className="mt-6 p-6 rounded-lg bg-white text-black w-full max-w-xs text-center shadow-md">
+            {!member.valid ? (
+              <h2 className="text-xl font-bold">Invalid Member</h2>
+            ) : member.active ? (
+              <>
+                <h2 className="text-xl font-bold">Active Member</h2>
+                <p className="mt-2">{member.name}</p>
+              </>
+            ) : (
+              <>
+                <h2 className="text-xl font-bold">Not Active</h2>
+                <p className="mt-2">{member.name}</p>
+                <p className="text-sm mt-1">
+                  Last Paid: <b>{member.lastPaidSemester || "None"}</b>
+                </p>
+              </>
+            )}
+          </div>
 
+          {/* ONE BUTTON BELOW CARD */}
           <button
-            className="mt-4 px-4 py-2 bg-black text-white rounded-lg"
             onClick={handleStartScanner}
+            className="mt-6 px-6 py-3 bg-white text-black rounded-lg"
           >
-            Scan Again
+            Start New Scan
           </button>
-        </div>
+        </>
       )}
     </div>
   );
