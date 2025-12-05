@@ -19,46 +19,6 @@ export default function ScanPage() {
 
   const scannerRef = useRef<Html5Qrcode | null>(null);
 
-  /** Start scanner AFTER isScanning turns true */
-  useEffect(() => {
-    if (!isScanning) return;
-
-    const start = async () => {
-      setErrorMsg(null);
-
-      try {
-        await navigator.mediaDevices.getUserMedia({ video: true });
-      } catch {
-        setErrorMsg("Camera permission denied.");
-        setIsScanning(false);
-        return;
-      }
-
-      const scanner = new Html5Qrcode("qr-reader");
-      scannerRef.current = scanner;
-
-      try {
-        await scanner.start(
-          { facingMode: "environment" },
-          { fps: 10, qrbox: 250 },
-          (text) => {
-            setMembershipId(text);
-            stopScanner(); // safe stop
-          }
-        );
-      } catch (err) {
-        console.error("Start failed:", err);
-        setErrorMsg("Failed to start scanner.");
-        stopScanner();
-      }
-    };
-
-    start();
-
-    /** CLEANUP: do NOT stop scanner here (React is transitioning) */
-    return () => {};
-  }, [isScanning]);
-
   /** Safe stop function */
   const stopScanner = async () => {
     const scanner = scannerRef.current;
@@ -84,6 +44,49 @@ export default function ScanPage() {
     scannerRef.current = null;
     setIsScanning(false);
   };
+
+  /** Start scanner AFTER isScanning turns true */
+  useEffect(() => {
+    if (!isScanning) return;
+
+    const start = async () => {
+      setErrorMsg(null);
+
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: true });
+      } catch {
+        setErrorMsg("Camera permission denied.");
+        setIsScanning(false);
+        return;
+      }
+
+      const scanner = new Html5Qrcode("qr-reader");
+      scannerRef.current = scanner;
+
+      try {
+        await scanner.start(
+          { facingMode: "environment" },
+          { fps: 10, qrbox: 250 },
+          (text) => {
+            setMembershipId(text);
+            stopScanner(); // safe stop
+          },
+          (errorMessage) => {
+            setErrorMsg(errorMessage);
+          }
+        );
+      } catch (err) {
+        console.error("Start failed:", err);
+        setErrorMsg("Failed to start scanner.");
+        stopScanner();
+      }
+    };
+
+    start();
+
+    /** CLEANUP: do NOT stop scanner here (React is transitioning) */
+    return () => {};
+  }, [isScanning]);
 
   /** Start scanner button action */
   const handleStartScanner = () => {
