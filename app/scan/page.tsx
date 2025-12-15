@@ -1,7 +1,7 @@
 "use client";
 
 import { Html5Qrcode } from "html5-qrcode";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 interface MemberResponse {
@@ -19,8 +19,8 @@ export default function ScanPage() {
 
   const scannerRef = useRef<Html5Qrcode | null>(null);
 
-  /** Safe stop function */
-  const stopScanner = async () => {
+  /* ---------------- STOP SCANNER (STABLE + IDPOTENT) ---------------- */
+  const stopScanner = useCallback(async () => {
     const scanner = scannerRef.current;
     if (!scanner) {
       setIsScanning(false);
@@ -31,72 +31,75 @@ export default function ScanPage() {
       if (scanner.isScanning) {
         await scanner.stop();
       }
-    } catch (e) {
-      console.warn("stop() error:", e);
+    } catch {
+      // silent — stop() can fail if already stopped
     }
 
     try {
       await scanner.clear();
-    } catch (e) {
-      console.warn("clear() error:", e);
+    } catch {
+      // silent
     }
 
     scannerRef.current = null;
     setIsScanning(false);
-  };
+  }, []);
 
-  /** Start scanner AFTER isScanning turns true */
+  /* ---------------- VISIBILITY / BACKGROUND SAFETY ---------------- */
   useEffect(() => {
-    if (!isScanning) return;
-
-    const start = async () => {
-      setErrorMsg(null);
-
-      try {
-        await navigator.mediaDevices.getUserMedia({ video: true });
-      } catch {
-        setErrorMsg("Camera permission denied.");
-        setIsScanning(false);
-        return;
-      }
-
-      const scanner = new Html5Qrcode("qr-reader");
-      scannerRef.current = scanner;
-
-      try {
-        await scanner.start(
-          { facingMode: "environment" },
-          { fps: 10, qrbox: 250 },
-          (text) => {
-            setMembershipId(text);
-            stopScanner(); // safe stop
-          },
-          (errorMessage) => {
-            setErrorMsg(errorMessage);
-          }
-        );
-      } catch (err) {
-        console.error("Start failed:", err);
-        setErrorMsg("Failed to start scanner.");
+    const onVisibilityChange = () => {
+      if (document.hidden) {
         stopScanner();
       }
     };
 
-    start();
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, [stopScanner]);
 
-    /** CLEANUP: do NOT stop scanner here (React is transitioning) */
-    return () => {};
-  }, [isScanning]);
+  /* ---------------- START SCANNER ---------------- */
+  useEffect(() => {
+    if (!isScanning) return;
 
-  /** Start scanner button action */
-  const handleStartScanner = () => {
-    setMembershipId(null);
-    setMember(null);
-    setErrorMsg(null);
-    setIsScanning(true);
-  };
+    const startScanner = async () => {
+      setErrorMsg(null);
 
-  /** Fetch member info */
+      const scanner = new Html5Qrcode("qr-reader");
+      scannerRef.current = scanner;
+
+      // Delay ensures DOM is mounted (mobile browsers)
+      setTimeout(async () => {
+        try {
+          await scanner.start(
+            { facingMode: "environment" },
+            {
+              fps: 5,
+              qrbox: { width: 250, height: 250 },
+            },
+            (decodedText) => {
+              setMembershipId(decodedText);
+              stopScanner();
+            },
+            () => {
+              // scan errors are expected noise — ignore
+            }
+          );
+        } catch {
+          setErrorMsg("Failed to initialize camera.");
+          stopScanner();
+        }
+      }, 300);
+    };
+
+    startScanner();
+
+    return () => {
+      stopScanner();
+    };
+  }, [isScanning, stopScanner]);
+
+  /* ---------------- FETCH MEMBER DATA ---------------- */
   useEffect(() => {
     if (!membershipId) return;
 
@@ -114,27 +117,36 @@ export default function ScanPage() {
     fetchData();
   }, [membershipId]);
 
+  /* ---------------- UI ---------------- */
   return (
     <div className="p-6 flex flex-col items-center min-h-screen bg-black text-white">
       {/* HEADER */}
       <h1 className="text-2xl font-bold mt-4 text-center tracking-wide">
-        Bangladesh Stundent Association
+        Bangladesh Student Association
       </h1>
       <h2 className="text-lg font-semibold mb-6 text-center">
         Texas State University <br /> Membership QR Scan
       </h2>
 
-      {/* SHOW START BUTTON WHEN NOTHING IS SCANNING & NO RESULT */}
+      {/* ERROR */}
+      {errorMsg && <p className="text-red-400 text-center mb-4">{errorMsg}</p>}
+
+      {/* START */}
       {!isScanning && !member && (
         <button
-          onClick={handleStartScanner}
+          onClick={() => {
+            setMembershipId(null);
+            setMember(null);
+            setErrorMsg(null);
+            setIsScanning(true);
+          }}
           className="mt-4 px-4 py-2 bg-white text-black rounded-lg"
         >
           Start Scanner
         </button>
       )}
 
-      {/* LIVE SCANNER UI */}
+      {/* SCANNER */}
       {isScanning && (
         <>
           <div id="qr-reader" className="w-full max-w-xs mx-auto bg-black" />
@@ -147,14 +159,14 @@ export default function ScanPage() {
         </>
       )}
 
-      {/* SCANNED RAW TEXT */}
+      {/* SCANNED ID */}
       {membershipId && (
         <p className="text-lg font-semibold mt-4 text-center break-words">
           Membership ID: {membershipId}
         </p>
       )}
 
-      {/* RESULT CARD */}
+      {/* RESULT */}
       {member && (
         <>
           <div className="mt-6 p-6 rounded-lg bg-white text-black w-full max-w-xs text-center shadow-md">
@@ -176,9 +188,14 @@ export default function ScanPage() {
             )}
           </div>
 
-          {/* ONE BUTTON BELOW CARD */}
+          {/* RESTART */}
           <button
-            onClick={handleStartScanner}
+            onClick={() => {
+              setMembershipId(null);
+              setMember(null);
+              setErrorMsg(null);
+              setIsScanning(true);
+            }}
             className="mt-6 px-6 py-3 bg-white text-black rounded-lg"
           >
             Start New Scan
