@@ -1,207 +1,37 @@
+// app/scan/page.tsx
 "use client";
 
-import { Html5Qrcode } from "html5-qrcode";
-import { useRef, useState, useEffect, useCallback } from "react";
-import axios from "axios";
-
-interface MemberResponse {
-  valid: boolean;
-  name?: string;
-  lastPaidSemester?: string;
-  active: boolean;
-}
+import { useState } from "react";
+import { ScanView } from "./ScanView";
+import { useQrScanner } from "./useQrScanner";
+import { useMemberLookup } from "./useMemberLookup";
 
 export default function ScanPage() {
   const [membershipId, setMembershipId] = useState<string | null>(null);
-  const [member, setMember] = useState<MemberResponse | null>(null);
-  const [isScanning, setIsScanning] = useState(false);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const scannerRef = useRef<Html5Qrcode | null>(null);
+  const { member, setMember } = useMemberLookup(membershipId);
 
-  /* ---------------- STOP SCANNER (STABLE + IDPOTENT) ---------------- */
-  const stopScanner = useCallback(async () => {
-    const scanner = scannerRef.current;
-    if (!scanner) {
-      setIsScanning(false);
-      return;
-    }
+  const scanner = useQrScanner((text) => {
+    setMembershipId(text);
+  });
 
-    try {
-      if (scanner.isScanning) {
-        await scanner.stop();
-      }
-    } catch {
-      // silent — stop() can fail if already stopped
-    }
-
-    try {
-      await scanner.clear();
-    } catch {
-      // silent
-    }
-
-    scannerRef.current = null;
-    setIsScanning(false);
-  }, []);
-
-  /* ---------------- VISIBILITY / BACKGROUND SAFETY ---------------- */
-  useEffect(() => {
-    const onVisibilityChange = () => {
-      if (document.hidden) {
-        stopScanner();
-      }
-    };
-
-    document.addEventListener("visibilitychange", onVisibilityChange);
-    return () =>
-      document.removeEventListener("visibilitychange", onVisibilityChange);
-  }, [stopScanner]);
-
-  /* ---------------- START SCANNER ---------------- */
-  useEffect(() => {
-    if (!isScanning) return;
-
-    const startScanner = async () => {
-      setErrorMsg(null);
-
-      const scanner = new Html5Qrcode("qr-reader");
-      scannerRef.current = scanner;
-
-      // Delay ensures DOM is mounted (mobile browsers)
-      setTimeout(async () => {
-        try {
-          await scanner.start(
-            { facingMode: "environment" },
-            {
-              fps: 5,
-              qrbox: { width: 250, height: 250 },
-            },
-            (decodedText) => {
-              setMembershipId(decodedText);
-              stopScanner();
-            },
-            () => {
-              // scan errors are expected noise — ignore
-            }
-          );
-        } catch {
-          setErrorMsg("Failed to initialize camera.");
-          stopScanner();
-        }
-      }, 300);
-    };
-
-    startScanner();
-
-    return () => {
-      stopScanner();
-    };
-  }, [isScanning, stopScanner]);
-
-  /* ---------------- FETCH MEMBER DATA ---------------- */
-  useEffect(() => {
-    if (!membershipId) return;
-
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("/api/check", {
-          params: { id: membershipId },
-        });
-        setMember(res.data);
-      } catch {
-        setMember(null);
-      }
-    };
-
-    fetchData();
-  }, [membershipId]);
-
-  /* ---------------- UI ---------------- */
   return (
-    <div className="p-6 flex flex-col items-center min-h-screen bg-black text-white">
-      {/* HEADER */}
-      <h1 className="text-2xl font-bold mt-4 text-center tracking-wide">
-        Bangladesh Student Association
-      </h1>
-      <h2 className="text-lg font-semibold mb-6 text-center">
-        Texas State University <br /> Membership QR Scan
-      </h2>
-
-      {/* ERROR */}
-      {errorMsg && <p className="text-red-400 text-center mb-4">{errorMsg}</p>}
-
-      {/* START */}
-      {!isScanning && !member && (
-        <button
-          onClick={() => {
-            setMembershipId(null);
-            setMember(null);
-            setErrorMsg(null);
-            setIsScanning(true);
-          }}
-          className="mt-4 px-4 py-2 bg-white text-black rounded-lg"
-        >
-          Start Scanner
-        </button>
-      )}
-
-      {/* SCANNER */}
-      {isScanning && (
-        <>
-          <div id="qr-reader" className="w-full max-w-xs mx-auto bg-black" />
-          <button
-            onClick={stopScanner}
-            className="mt-4 px-4 py-2 bg-white text-black rounded-lg"
-          >
-            Stop Scanner
-          </button>
-        </>
-      )}
-
-      {/* SCANNED ID */}
-      {membershipId && (
-        <p className="text-lg font-semibold mt-4 text-center break-words">
-          Membership ID: {membershipId}
-        </p>
-      )}
-
-      {/* RESULT */}
-      {member && (
-        <>
-          <div className="mt-6 p-6 rounded-lg bg-white text-black w-full max-w-xs text-center shadow-md">
-            {!member.valid ? (
-              <h2 className="text-xl font-bold">Invalid Member</h2>
-            ) : member.active ? (
-              <>
-                <h2 className="text-xl font-bold">Active Member</h2>
-                <p className="mt-2">{member.name}</p>
-              </>
-            ) : (
-              <>
-                <h2 className="text-xl font-bold">Not Active</h2>
-                <p className="mt-2">{member.name}</p>
-                <p className="text-sm mt-1">
-                  Last Paid: <b>{member.lastPaidSemester || "None"}</b>
-                </p>
-              </>
-            )}
-          </div>
-
-          {/* RESTART */}
-          <button
-            onClick={() => {
-              setMembershipId(null);
-              setMember(null);
-              setErrorMsg(null);
-              setIsScanning(true);
-            }}
-            className="mt-6 px-6 py-3 bg-white text-black rounded-lg"
-          >
-            Start New Scan
-          </button>
-        </>
-      )}
-    </div>
+    <ScanView
+      isScanning={scanner.isScanning}
+      errorMsg={scanner.errorMsg}
+      membershipId={membershipId}
+      member={member}
+      onStart={() => {
+        setMembershipId(null);
+        setMember(null);
+        scanner.start();
+      }}
+      onStop={scanner.stop}
+      onRestart={() => {
+        setMembershipId(null);
+        setMember(null);
+        scanner.start();
+      }}
+    />
   );
 }
