@@ -1318,5 +1318,45 @@
         "paid": true
       }
     ]
+  },
+  "zvx19@txstate.edu": {
+    "name": "Nusrat Humaira",
+    "email": "zvx19@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "imc79@txstate.edu": {
+    "name": "Humaira Nooree Khan",
+    "email": "imc79@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "dyj25@txstate.edu": {
+    "name": "Sourav Saha",
+    "email": "dyj25@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "ndg79@txstate.edu": {
+    "name": "Mahfujur Rahman Araf",
+    "email": "ndg79@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
   }
 }
