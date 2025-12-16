@@ -1358,5 +1358,105 @@
         "paid": true
       }
     ]
+  },
+  "khairul.azman@txstate.edu": {
+    "name": "Khairul Azman",
+    "email": "khairul.azman@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "gwp48@txstate.edu": {
+    "name": "SHOURAV GHOSH",
+    "email": "gwp48@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "egj38@txstate.edu": {
+    "name": "Abu Zobayer",
+    "email": "egj38@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "wqc15@txsate.edu": {
+    "name": "Avijit Chakrabarty Ayon",
+    "email": "wqc15@txsate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "vsj23@txstate.edu": {
+    "name": "MD Sameer Iqbal Chowdhury",
+    "email": "vsj23@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "szw10@txstate.edu": {
+    "name": "Md Tousif Tanzir",
+    "email": "szw10@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "sirajummunira234@gmail.com": {
+    "name": "Sirajum Munira Maria",
+    "email": "sirajummunira234@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "cuo20@txstate.edu": {
+    "name": "Mahnura Akhter Borney",
+    "email": "cuo20@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "pfm30@txstate.edu": {
+    "name": "Asma Ul Husna",
+    "email": "pfm30@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "xei29@txstate.edu": {
+    "name": "Durjoy Chandra Paul",
+    "email": "xei29@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
   }
 }
