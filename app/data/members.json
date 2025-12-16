@@ -1458,5 +1458,25 @@
         "paid": true
       }
     ]
+  },
+  "harun.560265@gmail.com": {
+    "name": "Md. Harun Or Roshid",
+    "email": "harun.560265@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
+  },
+  "evume04@gmail.com": {
+    "name": "Abrar Roshid",
+    "email": "evume04@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Fall 2025",
+        "paid": true
+      }
+    ]
   }
 }
