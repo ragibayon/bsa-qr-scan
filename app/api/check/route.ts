@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import members from "@/app/data/members.json";
 
 // Load active semester from env (fallback for safety)
-const activeSemester = process.env.ACTIVE_SEMESTER?.trim() || "Fall 2025";
+const activeSemester = process.env.ACTIVE_SEMESTER?.trim() || "Spring 2026";
 
 // Convert semester to sortable numeric index
 function semesterRank(sem: string) {
@@ -23,7 +23,7 @@ export async function GET(req: Request) {
   if (!id) {
     return NextResponse.json(
       { valid: false, error: "Missing ID" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -42,7 +42,7 @@ export async function GET(req: Request) {
 
   // Sort payment history safely
   const sortedHistory = [...member.paymentHistory].sort(
-    (a, b) => semesterRank(a.semester) - semesterRank(b.semester)
+    (a, b) => semesterRank(a.semester) - semesterRank(b.semester),
   );
 
   const lastPayment = sortedHistory.at(-1);

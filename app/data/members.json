@@ -60,11 +60,15 @@
     ]
   },
   "bjw146@txstate.edu": {
-    "name": "Aiyubur Rahman ( Ornob Baba )",
+    "name": "Aiyubur Rahman (Ornob Baba)",
     "email": "bjw146@txstate.edu",
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -135,6 +139,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -336,6 +344,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -465,6 +477,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -706,6 +722,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -846,6 +866,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -855,6 +879,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -1326,6 +1354,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -1436,6 +1468,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -1466,6 +1502,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -1475,6 +1515,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
