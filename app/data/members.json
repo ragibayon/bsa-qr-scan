@@ -1767,7 +1767,7 @@
   },
   "yey19@txstate.esu": {
     "name": "Noor-E-Mahbub",
-    "email": "yey19@txstate.esu",
+    "email": "yey19@txstate.edu",
     "paymentHistory": [
       {
         "semester": "Spring 2026",
@@ -1926,7 +1926,7 @@
     ]
   },
   "ndm80@txstate.edu": {
-    "name": "Adeeba Sumaiya",
+    "name": "Md Munir Mahmud",
     "email": "ndm80@txstate.edu",
     "paymentHistory": [
       {
@@ -1936,7 +1936,7 @@
     ]
   },
   "vig30@txstate.edu": {
-    "name": "Shuvo",
+    "name": "Shuvo Brahma",
     "email": "vig30@txstate.edu",
     "paymentHistory": [
       {
@@ -1978,6 +1978,66 @@
   "btg59@txstate.edu": {
     "name": "Mithun Ray",
     "email": "btg59@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "pay28@txstate.edu": {
+    "name": "Sazzad Bin Bashar Polock",
+    "email": "pay28@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "vsj23@txstate.edu": {
+    "name": "MD Sameer Iqbal Chowdhury",
+    "email": "vsj23@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "xir28@txstate.edu": {
+    "name": "Sabila hanium Maria",
+    "email": "xir28@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "isq12@txstate.edu": {
+    "name": "Malay Kumar Das",
+    "email": "isq12@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "nyz11@txstate.edu": {
+    "name": "Keya Das",
+    "email": "nyz11@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "munirju40@gmail.com": {
+    "name": "Adeeba Sumaiya",
+    "email": "munirju40@gmail.com",
     "paymentHistory": [
       {
         "semester": "Spring 2026",
