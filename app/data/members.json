@@ -2052,5 +2052,15 @@
         "paid": true
       }
     ]
+  },
+  "bey33@txstate.edu": {
+    "name": "Sonjoy Chandra Debnath",
+    "email": "bey33@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
   }
 }
