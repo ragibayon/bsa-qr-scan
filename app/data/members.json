@@ -30,6 +30,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -102,6 +106,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -153,6 +161,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -354,6 +366,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -387,6 +403,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -672,6 +692,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -862,6 +886,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -915,6 +943,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -1319,6 +1351,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -1888,6 +1924,10 @@
     "email": "rwh81@txstate.edu",
     "paymentHistory": [
       {
+        "semester": "Fall 2025",
+        "paid": true
+      },
+      {
         "semester": "Spring 2026",
         "paid": true
       }
@@ -2056,6 +2096,76 @@
   "bey33@txstate.edu": {
     "name": "Sonjoy Chandra Debnath",
     "email": "bey33@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "tzb25@txstate.edu": {
+    "name": "Riaz Hossain",
+    "email": "tzb25@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "toufikrahman098@gmail.com": {
+    "name": "Fatematuj Saima",
+    "email": "toufikrahman098@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "zle20@txstate.edu": {
+    "name": "Raisul I Reshad",
+    "email": "zle20@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "tcx20@txstate.edu": {
+    "name": "Sourove Roy",
+    "email": "tcx20@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "deu14@txstate.edu": {
+    "name": "TAREK AZIZ",
+    "email": "deu14@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "kmsthabiba45@gmail.com": {
+    "name": "Mst Habiba Khatun",
+    "email": "kmsthabiba45@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "aro94@txstate.edu": {
+    "name": "NAZWA CHOWDHURY",
+    "email": "aro94@txstate.edu",
     "paymentHistory": [
       {
         "semester": "Spring 2026",
