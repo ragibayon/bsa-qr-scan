@@ -20,6 +20,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -384,6 +388,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -449,6 +457,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -641,6 +653,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -1148,6 +1164,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -1578,6 +1598,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -1700,6 +1724,10 @@
       {
         "semester": "Fall 2025",
         "paid": true
+      },
+      {
+        "semester": "Spring 2026",
+        "paid": true
       }
     ]
   },
@@ -1771,6 +1799,10 @@
     "paymentHistory": [
       {
         "semester": "Fall 2025",
+        "paid": true
+      },
+      {
+        "semester": "Spring 2026",
         "paid": true
       }
     ]
@@ -1933,16 +1965,6 @@
       }
     ]
   },
-  "mgr167@txstate.edu": {
-    "name": "Aditi Roy",
-    "email": "mgr167@txstate.edu",
-    "paymentHistory": [
-      {
-        "semester": "Spring 2026",
-        "paid": true
-      }
-    ]
-  },
   "zxs12@txstate.edu": {
     "name": "Md Sakif Uddin Khan",
     "email": "zxs12@txstate.edu",
@@ -1957,20 +1979,6 @@
     "name": "Tayyaba Tun Nur Tanjum",
     "email": "kjg168@txstate.edu",
     "paymentHistory": [
-      {
-        "semester": "Spring 2026",
-        "paid": true
-      }
-    ]
-  },
-  "rwh81@txstate.edu": {
-    "name": "Kazi Sifatul Islam",
-    "email": "rwh81@txstate.edu",
-    "paymentHistory": [
-      {
-        "semester": "Fall 2025",
-        "paid": true
-      },
       {
         "semester": "Spring 2026",
         "paid": true
@@ -2077,49 +2085,9 @@
       }
     ]
   },
-  "pay28@txstate.edu": {
-    "name": "Sazzad Bin Bashar Polock",
-    "email": "pay28@txstate.edu",
-    "paymentHistory": [
-      {
-        "semester": "Spring 2026",
-        "paid": true
-      }
-    ]
-  },
-  "vsj23@txstate.edu": {
-    "name": "MD Sameer Iqbal Chowdhury",
-    "email": "vsj23@txstate.edu",
-    "paymentHistory": [
-      {
-        "semester": "Spring 2026",
-        "paid": true
-      }
-    ]
-  },
   "xir28@txstate.edu": {
     "name": "Sabila hanium Maria",
     "email": "xir28@txstate.edu",
-    "paymentHistory": [
-      {
-        "semester": "Spring 2026",
-        "paid": true
-      }
-    ]
-  },
-  "isq12@txstate.edu": {
-    "name": "Malay Kumar Das",
-    "email": "isq12@txstate.edu",
-    "paymentHistory": [
-      {
-        "semester": "Spring 2026",
-        "paid": true
-      }
-    ]
-  },
-  "nyz11@txstate.edu": {
-    "name": "Keya Das",
-    "email": "nyz11@txstate.edu",
     "paymentHistory": [
       {
         "semester": "Spring 2026",
@@ -2210,6 +2178,146 @@
   "aro94@txstate.edu": {
     "name": "NAZWA CHOWDHURY",
     "email": "aro94@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "sabrinakabir7315@gmail.com": {
+    "name": "Ayesha Aribah",
+    "email": "sabrinakabir7315@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "cch157@txstate.edu": {
+    "name": "Tanjin Barketullah Robin",
+    "email": "cch157@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "tabshirarahmant@gmail.com": {
+    "name": "Tabshira Rahman Tanu",
+    "email": "tabshirarahmant@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "samiah@arizona.edu": {
+    "name": "Samiah Hassan",
+    "email": "samiah@arizona.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "ayo28@txstate.edu": {
+    "name": "Sawgat Ahmed Shuvo",
+    "email": "ayo28@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "ananyabarua2402@gmail.com": {
+    "name": "Ananya Barua",
+    "email": "ananyabarua2402@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "xbw23@txstate.edu": {
+    "name": "Nishat Tarannum",
+    "email": "xbw23@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "gxf18@txstate.edu": {
+    "name": "Md Rashed Imtiouz",
+    "email": "gxf18@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "imtiouz.du@gmail.com": {
+    "name": "Afroza Akter",
+    "email": "imtiouz.du@gmail.com",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "ske44@txstate.edu": {
+    "name": "Tahsina Rahman Roza",
+    "email": "ske44@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "xwh19@txstate.edu": {
+    "name": "Lamia A. Khan",
+    "email": "xwh19@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "jga109@txstate.edu": {
+    "name": "IMTIAZ CHOWDHURY",
+    "email": "jga109@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "dwf54@txstate.edu": {
+    "name": "Swarnali Deb Bristi",
+    "email": "dwf54@txstate.edu",
+    "paymentHistory": [
+      {
+        "semester": "Spring 2026",
+        "paid": true
+      }
+    ]
+  },
+  "lki31@txstate.edu": {
+    "name": "Jawad Ashraf",
+    "email": "lki31@txstate.edu",
     "paymentHistory": [
       {
         "semester": "Spring 2026",
